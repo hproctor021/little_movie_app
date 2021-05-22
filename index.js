@@ -1,29 +1,48 @@
-const fetchData = async searchTerm => {
+
+createAutoComplete({
+    root: document.querySelector('.autocomplete'),
+    renderOption(movie){
+        const imgSrc = movie.Poster === 'N/A' ? '' : movie.Poster
+        return `
+        <img src="${imgSrc}" />
+        ${movie.Title} (${movie.Year})
+    `
+    // use backticks when creating a multi-line string
+    },
+
+    onOptionSelect(movie){
+        onMovieSelect(movie)
+    },
+
+    inputValue(movie){
+        return movie.Title
+    },
+
+    async fetchData(searchTerm){
+        const response = await axios.get('http://www.omdbapi.com/', {
+            params: {
+                apikey: '7b74a652',
+                s: searchTerm
+            }
+        })
+    
+        if( response.data.Error ){
+            return []
+        }
+        // if there are no results, (no match found) just return an empty array
+        return response.data.Search
+    }
+})
+
+const onMovieSelect = async movie => {
     const response = await axios.get('http://www.omdbapi.com/', {
         params: {
             apikey: '7b74a652',
-            s: searchTerm
+            i: movie.imdbID
         }
     })
-
-    if( response.data.Error ){
-        return []
-    }
-    // if there are no results, (no match found) just return an empty array
-    return response.data.Search
-};
-
-
-createAutoComplete({
-    root: document.querySelector('.autocomplete')
-})
-createAutoComplete({
-    root: document.querySelector('.autocomplete-two')
-})
-createAutoComplete({
-    root: document.querySelector('.autocomplete-three')
-})
-
+    document.querySelector('#summary').innerHTML = movieTemplate(response.data)
+}
 
 const movieTemplate = (movieDetail) => {
     return `
