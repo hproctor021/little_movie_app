@@ -17,7 +17,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Movie Fight
+            Movie Match Up
             <span class="icon">
               <i class="fas fa-film"></i>
             </span>
@@ -27,9 +27,14 @@
     </section>
     <div class="container">
      <div class="autocomplete"></div>
+     <div class="autocomplete-two"></div>
+     <div class="autocomplete-three"></div>
      <div id="summary"></div>
     </div>
     <script src="utils.js"></script>
+    <script src="autocomplete.js"></script>
+    <!-- autocomplete file must be called first becuase our index.js file 
+      calls on it for functionality, cannot call on it before it 'exists'-->
     <script src="index.js"></script>
   </body>
 </html>
