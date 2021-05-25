@@ -46,3 +46,11 @@ figure .image img {
   height: 50px;
   margin-right: 10px;
 }
+
+.container .column {
+  padding: 50px;
+}
+
+.image {
+  height: 10px;
+}
