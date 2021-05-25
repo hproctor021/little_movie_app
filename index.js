@@ -85,10 +85,10 @@ const onMovieSelect = async (movie, summaryElement, side) => {
 
             if(rightSideValue > leftSideValue ){
                 leftStat.classList.remove('is-primary')
-                leftStat.classList.add('is-warning')
+                leftStat.classList.add('is-light')
             } else {
                 rightStat.classList.remove('is-primary')
-                rightStat.classList.add('is-warning')
+                rightStat.classList.add('is-light')
             }
             // this portion determines if the block should be green or yellow based on comparison values of each movie
         })
