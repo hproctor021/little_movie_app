@@ -28,7 +28,7 @@ figure .image img {
 }
 
 .hero {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .forms {
@@ -51,8 +51,20 @@ figure .image img {
   padding: 50px;
 }
 
+input:focus {
+  border: none;
+}
+
 .image {
   height: 10px;
+}
+
+.fa-linkedin-in:hover {
+  color: darkgrey !important;
+}
+
+.fa-github:hover {
+  color: darkgrey !important;
 }
 
 /* a:link {

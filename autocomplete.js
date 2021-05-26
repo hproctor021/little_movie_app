@@ -1,4 +1,5 @@
 const createAutoComplete = ({ 
+    //creates a reusable widget for input search and autocomplete
     root, 
     renderOption, 
     onOptionSelect, 
@@ -6,14 +7,14 @@ const createAutoComplete = ({
     fetchData
  }) => {
     root.innerHTML = `
-        <label><b>Search</b></label>
-        <input class="input" />
+        <input class="input" placeholder="Search" />
         <div class="dropdown">
             <div class="dropdown-menu">
                 <div class="dropdown-content results"></div>
             </div>
         </div>
     `
+    //this allows us to remove some clutter in the html file and create this widget here instead
 
     const input = root.querySelector('input')
     const dropdown = root.querySelector('.dropdown')

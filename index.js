@@ -79,8 +79,8 @@ const onMovieSelect = async (movie, summaryElement, side) => {
         leftSideStats.forEach((leftStat, index) => {
             const rightStat = rightSideStats[index]
 
-            const leftSideValue = leftStat.dataset.value
-            const rightSideValue = rightStat.dataset.value
+            const leftSideValue = parseInt(leftStat.dataset.value)
+            const rightSideValue = parseInt(rightStat.dataset.value)
             // in the JSX below we used data-value, so that's how we will access it
 
             if(rightSideValue > leftSideValue ){
@@ -102,7 +102,7 @@ const onMovieSelect = async (movie, summaryElement, side) => {
 }
 
 const movieTemplate = (movieDetail) => {
-
+// this function pulls out all desired info and stores up front in the DOM for easier use when we compare ( in the above function )
     const dollars = parseInt(movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, ''))
     const metascore = parseInt(movieDetail.Metascore)
     const imdbRating = parseFloat(movieDetail.imdbRating)
